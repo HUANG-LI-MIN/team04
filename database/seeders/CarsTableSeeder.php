@@ -16,23 +16,62 @@ class CarsTableSeeder extends Seeder
             }
             return $randomString;
         }
-        
-    /**
+      public function generateRandomtypes() {
+          $types = $this->generateRandomString(rand(2, 8));
+          $types = strtolower($types);
+          $types = ucfirst($types);
+          return $types;
+      } 
+
+      public function generateRandomhorespower(){
+       $horsepower = $this-> generateRandomString(rand(100,1000));
+       return $horsepower;
+      }
+
+      public function generateRandomcc(){
+        $cc = $this-> generateRandomString(rand(1300,3000));
+        return $cc;
+       }
+
+       public function generateRandommoney(){
+        $money = $this-> generateRandomString(rand(50,10000));
+        return $money;
+       }
+
+       public function generateRandomvariable_s(){
+       $position =$this-> generateRandomString(rand(0,8));
+        return $position[rand(0, count($position)-1)];
+       }
+
+       public function generateRandomseats(){
+        $seats = $this-> generateRandomString(rand(2,7));
+         return $position[rand(0, count($position)-1)];
+       }
+     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run(){
+    public function run()
+    {
+      for ($i=0; $i<500; $i++)
+      {
+          $types = $this->generateRandomtypes();
+          $horespower = $this->generateRandomhorespower();
+          $cc = $this->generateRandomcc();
+          $money = $this ->generateRandommoney();
+          $position = $this ->generateRandomvariable_s(); 
+          $seats = $this ->generateRandomseats();
+      }
       DB::table('cars')->insert([
-        'id'=>1,
-        'type'=>'轎車',
-        'bid'=>1,
-        'horsepower'=>107,
-        'cc'=>1496,
-        'money'=>59.9,
-        'variable_s'=>7,
-        'seats'=>4,
-        'nationality'=>'JAPAN',
+        'id'=>rand(1,20),
+        'type'=>$types,
+        'bid'=>rand(1,20),
+        'horsepower'=>$horsepower,
+        'cc'=>$cc,
+        'money'=>$money,
+        'variable_s'=>$position,
+        'seats'=>$seats,
       ]);
    }
 }
