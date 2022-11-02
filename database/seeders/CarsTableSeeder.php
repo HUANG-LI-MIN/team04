@@ -29,23 +29,23 @@ class CarsTableSeeder extends Seeder
       }
 
       public function generateRandomcc(){
-        $cc = $this-> generateRandomString(rand(1300,3000));
+        $cc = rand(1300,3000);
         return $cc;
        }
 
        public function generateRandommoney(){
-        $money = $this-> generateRandomString(rand(50,10000));
+        $money = rand(50,10000);
         return $money;
        }
 
        public function generateRandomvariable_s(){
-       $position =$this-> generateRandomString(rand(0,8));
+        $position = ['ABC', 'DDD', 'EFF'];
         return $position[rand(0, count($position)-1)];
        }
 
        public function generateRandomseats(){
-        $seats = $this-> generateRandomString(rand(2,7));
-         return $position[rand(0, count($position)-1)];
+        $seats = [2, 3, 4, 5, 6, 7, 8, 9];
+         return $seats[rand(0, count($seats)-1)];
        }
      /**
      * Run the database seeds.
@@ -57,21 +57,23 @@ class CarsTableSeeder extends Seeder
       for ($i=0; $i<500; $i++)
       {
           $types = $this->generateRandomtypes();
-          $horespower = $this->generateRandomhorespower();
+          $horespower = 10;
           $cc = $this->generateRandomcc();
           $money = $this ->generateRandommoney();
           $position = $this ->generateRandomvariable_s(); 
           $seats = $this ->generateRandomseats();
+          
+          DB::table('cars')->insert([
+            'id'=>rand(1,20),
+            'type'=>$types,
+            'bid'=>rand(1,20),
+            'horsepower'=>$horespower,
+            'cc'=>$cc,
+            'money'=>$money,
+            'variable_s'=>$position,
+            'seats'=>$seats,
+          ]);          
       }
-      DB::table('cars')->insert([
-        'id'=>rand(1,20),
-        'type'=>$types,
-        'bid'=>rand(1,20),
-        'horsepower'=>$horsepower,
-        'cc'=>$cc,
-        'money'=>$money,
-        'variable_s'=>$position,
-        'seats'=>$seats,
-      ]);
+      
    }
 }

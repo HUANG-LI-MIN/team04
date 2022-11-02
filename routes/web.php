@@ -17,5 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('cars', [CarsController::class, 'index'])->name('cars.index');
-    
+Route::get('cars/{id}', [CarsController::class, 'index'])->name('cars.show');
 
+Route::get('cars/delete/{id}', [CarsController::class, 'destroy'])->where('id', '[0-9]+')->name('teams.destroy');
+Route::get('brands/delete/{id}', [CarsController::class, 'destroy'])->where('id', '[0-9]+')->name('teams.destroy');
+
+Route::get('brands', [BrnandsController::class, 'index'])->name('brands.index');

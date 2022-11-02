@@ -33,7 +33,8 @@
             <th>價錢(萬)</th>
             <th>變速系統</th>
             <th>座位</th>
-           
+            <th>操作1</th>
+            <th>操作2</th>
         </tr>
         @foreach($cars as $car)
             <tr>
@@ -47,8 +48,9 @@
                 <td>{{ $car->weight }}</td>
                 <td>{{ $car->year }}</td>
                 <td>{{ $car->nationality }}</td>
-                
-                    </form>
+                <td><a href="{{ route('cars.show', ['id'=>$car->id]) }}">顯示</a></td>
+                <td><a href="{{ route('cars.destroy', ['id'=>$car->id]) }}">刪除</a></td>
+            </form>
                 </td>
             </tr>
         @endforeach
