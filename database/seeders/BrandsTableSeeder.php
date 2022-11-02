@@ -54,10 +54,10 @@ class BrandsTableSeeder extends Seeder
      return $nationality[rand(0, count($nationality)-1)];
     }
 
-    public function generateRandomtimes(){
-        $time = $this-> generateRandomString(rand(1900,2010));
+    /*public function generateRandomtimes(){
+        $time = (rand(1900,2010));
          return $time[rand(0, count($time)-1)];
-    }
+    }*/
     public function generateRandomplaces(){
         $places = [
         '愛知縣',
