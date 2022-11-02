@@ -39,7 +39,7 @@ class CarsTableSeeder extends Seeder
        }
 
        public function generateRandomvariable_s(){
-        $position = ['ABC', 'DDD', 'EFF'];
+        $position = ['七速手自排', '無段變速', '六速手自排','九速手自排','八速手自排','鋰離子電池','六速自排','八速自排','六速手排','無段自動','五速自排',];
         return $position[rand(0, count($position)-1)];
        }
 
