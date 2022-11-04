@@ -27,7 +27,7 @@
         車子品牌：{{ $car->bid }}<br/>
         車子馬力：{{ $car->horsepower }}<br/>
         車子CC數：{{ $car->cc }}<br/>
-        車子價錢：{{ $car->money }}<br/>
+        車子價錢(萬)：{{ $car->money }}<br/>
         車子變速系統 : {{ $car->variable_s }}<br/>
         車子座位 : {{ $car->seats}}<br/>
         

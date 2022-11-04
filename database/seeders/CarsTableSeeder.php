@@ -24,7 +24,7 @@ class CarsTableSeeder extends Seeder
       } 
 
       public function generateRandomhorespower(){
-       $horsepower = $this-> generateRandomString(rand(100,1000));
+       $horsepower = rand(100,1000);
        return $horsepower;
       }
 
@@ -57,7 +57,7 @@ class CarsTableSeeder extends Seeder
       for ($i=0; $i<500; $i++)
       {
           $types = $this->generateRandomtypes();
-          $horespower = 10;
+          $horespower = $this->generateRandomhorespower();
           $cc = $this->generateRandomcc();
           $money = $this ->generateRandommoney();
           $position = $this ->generateRandomvariable_s(); 
