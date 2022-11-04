@@ -119,7 +119,6 @@ class BrandsTableSeeder extends Seeder
             $ceo = $this->generateRandomceo();
             $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
             DB::table('brands')->insert([
-                'id'=>rand(1,20),
                 'brand'=>$brand,
                 'nationality'=>$nationality,
                 'time'=> rand(1900, 2022) . "-" . rand(1, 12) . "-" . rand(1, 28),

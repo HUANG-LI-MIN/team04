@@ -64,7 +64,6 @@ class CarsTableSeeder extends Seeder
           $seats = $this ->generateRandomseats();
           
           DB::table('cars')->insert([
-            'id'=>rand(1,20),
             'type'=>$types,
             'bid'=>rand(1,20),
             'horsepower'=>$horespower,

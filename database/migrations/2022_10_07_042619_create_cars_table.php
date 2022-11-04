@@ -14,9 +14,10 @@ class CreateCarsTable extends Migration
     public function up()
     {
         Schema::create('cars', function (Blueprint $table) {
-            $table->integer('id')->unsigned()->comment('編號');
+            $table->id()->comment('編號');
             $table->string('type',191)->nullable(false)->comment('車型');
-            $table->tinyInteger('bid')->unsigned()->nullable(false)->comment('品牌');
+            $table->foreignId('bid')->unsigned()->nullable(false)->comment('品牌');
+            $table->foreign('bid')->references('id')->on('brands')->onDelete('cascade');            
             $table->integer('horsepower')->nullable(true)->comment('馬力');
             $table->integer('cc')->nullable(false)->comment('CC數');
             $table->double('money')->unsigned()->nullable(false)->comment('價錢(萬)');
