@@ -25,9 +25,8 @@
     <table>
         <tr>
             <th>編號</th>
-            <th>型號</th>
-            <th>品牌</th>
             <th>車型</th>
+            <th>品牌</th>
             <th>馬力</th>
             <th>CC數</th>
             <th>價錢(萬)</th>
@@ -39,15 +38,14 @@
         @foreach($cars as $car)
             <tr>
                 <td>{{ $car->id }}</td>
-                <td>{{ $car->name }}</td>
-                <td>{{ $car->team->name }}</td>
-                <td>{{ $car->birthdate }}</td>
-                <td>{{ $car->onboarddate }}</td>
-                <td>{{ $car->position }}</td>
-                <td>{{ $car->height }}</td>
-                <td>{{ $car->weight }}</td>
-                <td>{{ $car->year }}</td>
-                <td>{{ $car->nationality }}</td>
+                <td>{{ $car->type }}</td>
+                <td>{{ $car->bid }}</td>
+                <td>{{ $car->horsepower }}</td>
+                <td>{{ $car->cc }}</td>
+                <td>{{ $car->money }}</td>
+                <td>{{ $car->variable_s }}</td>
+                <td>{{ $car->seats}}</td>
+                
                 <td><a href="{{ route('cars.show', ['id'=>$car->id]) }}">顯示</a></td>
                 <td><a href="{{ route('cars.destroy', ['id'=>$car->id]) }}">刪除</a></td>
             </form>

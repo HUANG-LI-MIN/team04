@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarsController;
+use App\Http\Controllers\BrandsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('cars', [CarsController::class, 'index'])->name('cars.index');
-Route::get('cars/{id}', [CarsController::class, 'index'])->name('cars.show');
+Route::get('cars/{id}', [CarsController::class, 'show'])->where('id', '[0-9]+')->name('cars.show');
+Route::get('cars/delete/{id}', [CarsController::class, 'destroy'])->where('id', '[0-9]+')->name('cars.destroy');
 
-Route::get('cars/delete/{id}', [CarsController::class, 'destroy'])->where('id', '[0-9]+')->name('teams.destroy');
-Route::get('brands/delete/{id}', [CarsController::class, 'destroy'])->where('id', '[0-9]+')->name('teams.destroy');
-
-Route::get('brands', [BrnandsController::class, 'index'])->name('brands.index');
+Route::get('brands', [BrandsController::class, 'index'])->name('brands.index');
+Route::get('brands/{id}', [BrandsController::class, 'show'])->where('id', '[0-9]+')->name('brands.show');
+Route::get('brands/delete/{id}', [BrandsController::class, 'destroy'])->where('id', '[0-9]+')->name('brands.destroy');

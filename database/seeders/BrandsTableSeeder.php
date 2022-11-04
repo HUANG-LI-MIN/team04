@@ -116,7 +116,7 @@ class BrandsTableSeeder extends Seeder
             $brand = $this->generateRandombrand();
             $nationality = $this->generateRandomnationality();
             $places = $this->generateRandomplaces();
-            $ceo = "創辦人";
+            $ceo = $this->generateRandomceo();
             $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
             DB::table('brands')->insert([
                 'id'=>rand(1,20),

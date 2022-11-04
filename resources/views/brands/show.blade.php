@@ -22,5 +22,11 @@
     </head>
     <body class="antialiased">
           顯示單一品牌的視圖(view)
+        車子編號：{{ $brand->id }}<br/>
+        汽車品牌：{{ $brand->brand }}<br/>
+        國家：{{ $brand->nationality }}<br/>
+        創立時間：{{ $brand->time }}<br/>
+        總部：{{ $brand->places }}<br/>
+        創辦人：{{ $brand->ceo }}<br/>
     </body>
 </html>
