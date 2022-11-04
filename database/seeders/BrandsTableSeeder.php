@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class BrandsTableSeeder extends Seeder
 {
@@ -115,13 +116,13 @@ class BrandsTableSeeder extends Seeder
             $brand = $this->generateRandombrand();
             $nationality = $this->generateRandomnationality();
             $places = $this->generateRandomplaces();
-            $ceo = $ceo . "創辦人";
+            $ceo = "創辦人";
             $random_datetime = Carbon::now()->subMinutes(rand(1, 55));
             DB::table('brands')->insert([
-                'id'=>1,
+                'id'=>rand(1,20),
                 'brand'=>$brand,
                 'nationality'=>$nationality,
-                'time'=> randyear(1900, 2022) . "-" . randmonth(1, 12) . "-" . randdate(1, 28),
+                'time'=> rand(1900, 2022) . "-" . rand(1, 12) . "-" . rand(1, 28),
                 'places'=>$places,
                 'ceo'=>$ceo,
             ]);
