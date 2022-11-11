@@ -1,20 +1,12 @@
-extends('app')
+@extends('app')
 
 @section('title', '車子品牌')
 
-@section('car_theme', '車子品牌')
+@section('cars_theme', '車子品牌')
 
-@section('car_contents')
+@section('cars_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-        <a href="{{ route('teams.create') }} ">新增車型</a>
-        <a href="{{ route('teams.index') }} ">所有車型</a>
-        <a href="{{ route('teams.western') }} ">日本車型</a>
-        <a href="{{ route('teams.western') }} ">德國車型</a>
-        <a href="{{ route('teams.western') }} ">美國車型</a>
-        <a href="{{ route('teams.western') }} ">法國車型</a>
-        <a href="{{ route('teams.western') }} ">英國車型</a>
-        <a href="{{ route('teams.western') }} ">義大利車型</a>
-        <a href="{{ route('teams.western') }} ">台灣車型</a>
+        <a href="{{ route('brands.index') }} ">所有車型</a>
     </div>
     <table>
     <table>

@@ -2,9 +2,9 @@
 
 @section('title', '顯示特定車型')
 
-@section('nba_theme', '您所選取的車型資料')
+@section('cars_theme', '您所選取的車型資料')
 
-@section('nba_contents')
+@section('cars_contents')
           顯示單一車型的視圖(view)
         車子編號：{{ $car->id }}<br/>
         車子型號：{{ $car->type }}<br/>

@@ -2,18 +2,11 @@
 
 @section('title', '車子規格')
 
-@section('car_theme', '車子規格')
+@section('cars_theme', '車子規格')
 
-@section('car_contents')
+@section('cars_contents')
 <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-        <a href="{{ route('cars.create') }} ">新增車型</a>
         <a href="{{ route('cars.index') }} ">所有車型</a>
-        <form action="{{ url('cars.position') }}" method='POST'>
-            {!! Form::label('pos', '座位數量：') !!}
-            {!! Form::select('pos', $positions, ['class' => 'form-control']) !!}
-            <input class="btn btn-default" type="submit" value="查詢" />
-            @csrf
-        </form>
     </div>
     <table>
         <tr>
