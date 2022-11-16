@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Brand;
+use Illuminate\Support\Facades\DB;
 class BrandsController extends Controller
 {
     public function index()
@@ -26,6 +27,16 @@ class BrandsController extends Controller
     }
     public function create()
     {
-        return view('brands.create');
+        $brands=DB::table('cars')
+          ->select('cars.id','cars.type')
+          ->orderBy('cars.id','asc')
+          ->get();
+        $data=[];
+        foreach($cars as $car)
+        {
+            $data[$car->id]=$car->type;
+        }
+     
+        return view('brands.create',['cars' =>$data]);
     }
 }
