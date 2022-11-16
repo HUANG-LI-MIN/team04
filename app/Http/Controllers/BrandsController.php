@@ -24,4 +24,8 @@ class BrandsController extends Controller
         $brand->delete();
         return redirect('brands');
     }
+    public function create()
+    {
+        return view('brands.create');
+    }
 }

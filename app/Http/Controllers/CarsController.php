@@ -24,4 +24,12 @@ class CarsController extends Controller
         $car ->delete();
         return redirect('cars');
     }
+    public function create()
+    {
+        return view('cars.create');
+    }
+
+
+
+
 }
