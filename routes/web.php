@@ -16,7 +16,7 @@ use App\Http\Controllers\BrandsController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('cars');
 });
 Route::get('cars', [CarsController::class, 'index'])->name('cars.index');
 Route::get('cars/{id}', [CarsController::class, 'show'])->where('id', '[0-9]+')->name('cars.show');

@@ -39,6 +39,4 @@
             </tr>
         @endforeach
     </table>
-    </body>
-</html>
 @endsection
