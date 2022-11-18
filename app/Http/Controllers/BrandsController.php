@@ -27,16 +27,6 @@ class BrandsController extends Controller
     }
     public function create()
     {
-        $brands=DB::table('cars')
-          ->select('cars.id','cars.type')
-          ->orderBy('cars.id','asc')
-          ->get();
-        $data=[];
-        foreach($cars as $car)
-        {
-            $data[$car->id]=$car->type;
-        }
-     
-        return view('brands.create',['cars' =>$data]);
+        return view('brands.create');
     }
 }

@@ -5,8 +5,10 @@
 @section('cars_theme', '車子規格')
 
 @section('cars_contents')
-<div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
+   <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
         <a href="{{ route('cars.index') }} ">所有車型</a>
+        <a href="{{ route('brands.index') }} ">所有車型品牌</a>
+        <a href="{{ route('cars.create') }} ">新增車型</a>
     </div>
     <table>
         <tr>
@@ -25,7 +27,7 @@
             <tr>
                 <td>{{ $car->id }}</td>
                 <td>{{ $car->type }}</td>
-                <td>{{ $car->bid }}</td>
+                <td>{{ $car->brand->brand }}</td>
                 <td>{{ $car->horsepower }}</td>
                 <td>{{ $car->cc }}</td>
                 <td>{{ $car->money }}</td>

@@ -6,7 +6,9 @@
 
 @section('cars_contents')
     <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-        <a href="{{ route('brands.index') }} ">所有車型</a>
+        <a href="{{ route('cars.index') }} ">所有車型</a>
+        <a href="{{ route('brands.index') }} ">所有車型品牌</a>
+        <a href="{{ route('brands.create') }} ">新增車型品牌</a>
     </div>
     <table>
             <tr>
