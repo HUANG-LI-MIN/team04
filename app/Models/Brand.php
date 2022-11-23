@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     use HasFactory;
+    public function cars()
+    {
+        return $this->hasMany('App\Models\Car', 'bid');
+    }
+
+    public function delete()
+    {
+        $this->cars()->delete();
+        return parent::delete();
+    }
 }

@@ -35,7 +35,13 @@
                 <td>{{ $car->seats}}</td>
                 
                 <td><a href="{{ route('cars.show', ['id'=>$car->id]) }}">顯示</a></td>
-                <td><a href="{{ route('cars.destroy', ['id'=>$car->id]) }}">刪除</a></td>
+                <td>
+                    <form action="{{ url('/cars/delete', ['id' => $car->id]) }}" method="post">
+                        <input class="btn btn-default" type="submit" value="刪除" />
+                        @method('delete')
+                        @csrf
+                    </form>
+                </td>
             </form>
                 </td>
             </tr>
