@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Models\Car;
 use Illuminate\Support\Facades\DB;
+use Request;
 class CarsController extends Controller
 {
+   public function store()
+   {
+      $input=Request::all();
+      car::create($input);
+      return redirect('cars');
+   }
+   
     public function index()
     {
         $cars =Car::all();
@@ -15,6 +23,7 @@ class CarsController extends Controller
     public function show($id)
     {
         $car =Car::findOrFail($id);       
+        
         return view('cars.show',['car' => $car]);
     }
 
