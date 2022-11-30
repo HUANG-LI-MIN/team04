@@ -8,16 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Brand extends Model
 {
     protected $fillable=[
+      
         'id',
-        'type',
-        'bid',
-        'horsepower',
-        'cc',
-        'money',
-        'variable_s',
-        'seats',
-        'created_at',
-        'updated_at',
+        'brand',
+        'nationality',
+        'time',
+        'places',
+        'ceo',
     ];
    
     use HasFactory;

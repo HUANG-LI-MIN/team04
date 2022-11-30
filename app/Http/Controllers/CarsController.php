@@ -11,7 +11,7 @@ class CarsController extends Controller
    public function store()
    {
       $input=Request::all();
-      car::create($input);
+      Car::create($input);
       return redirect('cars');
    }
    
