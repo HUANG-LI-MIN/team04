@@ -36,5 +36,13 @@ class BrandsController extends Controller
     public function create()
     {
         return view('brands.create');
-    }
+ 
+   }
+   public function edit($id)
+   {
+    $brand =Brand::findOrFail($id);
+    $tags =Brand::orderby('brands.id','asc')->pluck('brands.brand','brands.id');
+    $selectTag = $brand->bid;
+    return view('brands.edit',['brand'=>$brand,'brands'=>$tags, "selectBid"=>$selectTag]);
+   }
 }

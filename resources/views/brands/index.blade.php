@@ -20,6 +20,7 @@
                 <th>創辦人</th>
                 <th>操作1</th>
                 <th>操作2</th>
+                <th>操作3</th>
             </tr>
         @foreach($brands as $brand)
             <tr>
@@ -31,6 +32,7 @@
                 <td>{{ $brand->ceo }}</td>
 
                 <td><a href="{{ route('brands.show', ['id'=>$brand->id]) }}">顯示</a></td>
+                <td><a href="{{ route('brands.edit', ['id'=>$brand->id]) }}">修改</a></td>
                 <td>
                     <form action="{{ url('/brands/delete', ['id' => $brand->id]) }}" method="post">
                         <input class="btn btn-default" type="submit" value="刪除" />

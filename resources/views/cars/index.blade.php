@@ -22,6 +22,7 @@
             <th>座位</th>
             <th>操作1</th>
             <th>操作2</th>
+            <th>操作3</th>
         </tr>
         @foreach($cars as $car)
             <tr>
@@ -35,6 +36,7 @@
                 <td>{{ $car->seats}}</td>
                 
                 <td><a href="{{ route('cars.show', ['id'=>$car->id]) }}">顯示</a></td>
+                <td><a href="{{ route('cars.edit', ['id'=>$car->id]) }}">修改</a></td>
                 <td>
                     <form action="{{ url('/cars/delete', ['id' => $car->id]) }}" method="post">
                         <input class="btn btn-default" type="submit" value="刪除" />

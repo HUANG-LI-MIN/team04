@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //use Illuminate\Http\Request;
 use App\Models\Car;
+use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
 use Request;
 class CarsController extends Controller
@@ -35,7 +36,7 @@ class CarsController extends Controller
     }
     public function create()
     {
-        $brands=DB::table('brands')
+      /*  $brands=DB::table('brands')
           ->select('brands.id','brands.brand')
           ->orderBy('brands.id','asc')
           ->get();
@@ -44,7 +45,18 @@ class CarsController extends Controller
         {
             $data[$brand->id]=$brand->brand;
         }
-        return view('cars.create',['brands' =>$data]);
+        */ 
+        $tags=Brand::orderby('brands.id','asc')->pluck('brands.brand','brands.id');
+        
+        return view('cars.create',['brands' =>$tags]);
+    }
+    public function edit($id)
+    {
+        $car =Car::findOrFail($id);
+        $tags =Brand::orderby('brands.id','asc')->pluck('brands.brand','brands.id');
+        $selectTag = $car->bid;
+        return view('cars.edit',['car'=>$car,'brands'=>$tags, "selectBid"=>$selectTag]);
+
     }
 
 
