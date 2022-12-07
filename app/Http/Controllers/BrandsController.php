@@ -16,7 +16,7 @@ class BrandsController extends Controller
    }
     public function index()
     {
-        $brands =Brand::all();
+        $brands =Brand::paginate(10);
         return view('brands.index',['brands' => $brands]);
     }
     public function show($id)
@@ -41,8 +41,20 @@ class BrandsController extends Controller
    public function edit($id)
    {
     $brand =Brand::findOrFail($id);
-    $tags =Brand::orderby('brands.id','asc')->pluck('brands.brand','brands.id');
-    $selectTag = $brand->bid;
-    return view('brands.edit',['brand'=>$brand,'brands'=>$tags, "selectBid"=>$selectTag]);
+    return view('brands.edit',['brand'=>$brand]);
+   }
+   public function update($id)
+   {
+       $brand = Brand::findOrFail($id);
+       $input = Request::all();
+
+       $brand->brand = $input['brand'];
+       $brand->nationality = $input['nationality'];
+       $brand->time = $input['time'];
+       $brand->places = $input['places'];
+       $brand->ceo = $input['ceo'];    
+       $brand->save();
+
+       return redirect('brands');
    }
 }

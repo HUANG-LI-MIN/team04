@@ -43,4 +43,5 @@
             </tr>
         @endforeach
     </table> 
+    {{$brands->links()}}
 @endsection

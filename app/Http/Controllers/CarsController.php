@@ -18,7 +18,7 @@ class CarsController extends Controller
    
     public function index()
     {
-        $cars =Car::all();
+        $cars =Car::paginate(10);
         return view('cars.index',['cars' => $cars]);
     }
     public function show($id)
@@ -58,7 +58,22 @@ class CarsController extends Controller
         return view('cars.edit',['car'=>$car,'brands'=>$tags, "selectBid"=>$selectTag]);
 
     }
+    public function update($id)
+    {
+        $car = Car::findOrFail($id);
+        $input = Request::all();
 
+        $car->type = $input['type'];
+        $car->bid = $input['bid'];
+        $car->horsepower = $input['horsepower'];
+        $car->cc = $input['cc'];
+        $car->money = $input['money'];
+        $car->variable_s = $input['variable_s'];
+        $car->seats = $input['seats'];
+        $car->save();
+
+        return redirect('cars');
+    }
 
 
 
