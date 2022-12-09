@@ -5,6 +5,7 @@
 @section('cars_theme', '建立車型的表單')
 
 @section('cars_contents')
+    @include('message.list')
     {!! Form::open(['url' =>'brands/store']) !!}
     @include('brands.form', ['submitButtonText'=>"新增車型資料"])
     {!! Form::close() !!}

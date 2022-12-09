@@ -5,13 +5,24 @@ namespace App\Http\Controllers;
 //use Illuminate\Http\Request;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
-use Request;
+use App\Http\Requests\CreateBrandRequest;
 class BrandsController extends Controller
 {
-    public function store()
+    public function store(CreateBrandRequest $request)
    {
-      $input=Request::all();
-      brand::create($input);
+    $brand = $request->input('brand');
+    $nationality = $request->input('nationality');
+    $time = $request->input('time');
+    $places = $request->input('places');
+    $ceo = $request->input('ceo');
+   
+
+    $car = car::create([
+        'brand'=>$brand,
+        'nationality'=>$nationality,
+        'time'=>$time,
+        'places'=>$places,
+        'ceo'=>$ceo,]);
       return redirect('brands');
    }
     public function index()

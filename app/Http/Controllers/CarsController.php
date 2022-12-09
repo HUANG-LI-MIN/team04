@@ -6,13 +6,25 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
-use Request;
+use App\Http\Requests\CreateCarRequest;
+//use Request;
 class CarsController extends Controller
 {
-   public function store()
+   public function store(CreateCarRequest $request)
    {
-      $input=Request::all();
-      Car::create($input);
+    $type = $request->input('type');
+    $bid = $request->input('bid');
+    $cc = $request->input('cc');
+    $money = $request->input('money');
+    $variable_s = $request->input('variable_s');
+   
+
+    $car = car::create([
+        'type'=>$type,
+        'bid'=>$bidbid,
+        'cc'=>$cc,
+        'money'=>$money,
+        'variable_s'=>$variable_s,]);
       return redirect('cars');
    }
    
