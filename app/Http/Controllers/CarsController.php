@@ -70,18 +70,16 @@ class CarsController extends Controller
         return view('cars.edit',['car'=>$car,'brands'=>$tags, "selectBid"=>$selectTag]);
 
     }
-    public function update($id)
+    public function update($id,CreateCarRequest $request)
     {
         $car = Car::findOrFail($id);
-        $input = Request::all();
-
-        $car->type = $input['type'];
-        $car->bid = $input['bid'];
-        $car->horsepower = $input['horsepower'];
-        $car->cc = $input['cc'];
-        $car->money = $input['money'];
-        $car->variable_s = $input['variable_s'];
-        $car->seats = $input['seats'];
+        
+        
+        $car->type = $request->input('type');
+        $car->bid = $request->input('bid');
+        $car->cc = $request->input('cc');
+        $car-> money = $request->input('money');
+        $car->variable_s = $request->input('variable_s');
         $car->save();
 
         return redirect('cars');

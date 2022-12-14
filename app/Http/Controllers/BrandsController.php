@@ -54,16 +54,16 @@ class BrandsController extends Controller
     $brand =Brand::findOrFail($id);
     return view('brands.edit',['brand'=>$brand]);
    }
-   public function update($id)
+   public function update($id,CreateBrandRequest $request)
    {
        $brand = Brand::findOrFail($id);
-       $input = Request::all();
+       
 
-       $brand->brand = $input['brand'];
-       $brand->nationality = $input['nationality'];
-       $brand->time = $input['time'];
-       $brand->places = $input['places'];
-       $brand->ceo = $input['ceo'];    
+       $brand->brand = $request->input('brand');
+       $brand->nationality = $request->input('nationality');
+       $brand->time = $request->input('time');
+       $brand->places = $request->input('places');
+       $brand->ceo = $request->input('ceo');
        $brand->save();
 
        return redirect('brands');
