@@ -31,8 +31,15 @@ class CarsController extends Controller
     public function index()
     {
         $cars =Car::paginate(10);
-        return view('cars.index',['cars' => $cars]);
+        return view('cars.index',['cars' => $cars,'showPagination' =>true]);
     }
+
+    public function senior()
+    {
+        $cars =Car::senior()->get();
+        return view('cars.index',['cars' => $cars,'showPagination' =>false]);
+    }
+
     public function show($id)
     {
         $car =Car::findOrFail($id);       
@@ -73,7 +80,6 @@ class CarsController extends Controller
     public function update($id,CreateCarRequest $request)
     {
         $car = Car::findOrFail($id);
-        
         
         $car->type = $request->input('type');
         $car->bid = $request->input('bid');

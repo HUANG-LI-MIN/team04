@@ -58,7 +58,6 @@ class BrandsController extends Controller
    {
        $brand = Brand::findOrFail($id);
        
-
        $brand->brand = $request->input('brand');
        $brand->nationality = $request->input('nationality');
        $brand->time = $request->input('time');

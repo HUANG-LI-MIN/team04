@@ -25,6 +25,7 @@ Route::get('cars/create', [CarsController::class, 'create'])->name('cars.create'
 Route::post('cars/store',[CarsController::class,'store'])->name('cars.store');
 Route::get('cars/{id}/edit', [CarsController::class, 'edit'])->where('id', '[0-9]+')->name('cars.edit');
 Route::patch('cars/update/{id}', [CarsController::class, 'update'])->where('id', '[0-9]+')->name('cars.update');
+Route::get('cars/senior', [CarsController::class, 'senior'])->name('cars.senior');
 
 Route::get('brands/create', [BrandsController::class, 'create'])->name('brands.create');
 Route::get('brands', [BrandsController::class, 'index'])->name('brands.index');
