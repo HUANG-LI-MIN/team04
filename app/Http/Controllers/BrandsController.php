@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 //use Illuminate\Http\Request;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
+//Suse Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\CreateBrandRequest;
 class BrandsController extends Controller
 {
@@ -29,6 +30,22 @@ class BrandsController extends Controller
     {
         $brands =Brand::paginate(10);
         return view('brands.index',['brands' => $brands]);
+    }
+    public function japan()
+    {
+        $brands = Brand::nationality('日本')->get();
+        return view('brands.index', ['brands'=>$brands]);
+    }
+
+    public function usa()
+    {
+        $brands = Brand::nationality('美國')->get();
+        return view('brands.index', ['brands'=>$brands]);
+    }
+    public function germany()
+    {
+        $brands = Brand::nationality('德國')->get();
+        return view('brands.index', ['brands'=>$brands]);
     }
     public function show($id)
     {

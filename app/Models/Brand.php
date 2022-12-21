@@ -28,4 +28,23 @@ class Brand extends Model
         $this->cars()->delete();
         return parent::delete();
     }
+    public function brand()
+    {
+        return $this->belongsTo('App\Models\brand', 'bid', 'id');
+    }
+    public function scopeJapan($query)
+    {
+        $query->where('nationality','日本')->orderBy('nationality');
+    }
+    public function scopeUSA($query)
+    {
+        $query->where('nationality','美國')->orderBy('nationality');
+    }
+    public function scopeGermany($query)
+    {
+        $query->where('nationality','德國')->orderBy('nationality');
+    }
+    
+
 }
+

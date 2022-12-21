@@ -9,7 +9,7 @@
         <a href="{{ route('cars.index') }} ">所有車型</a>
         <a href="{{ route('brands.index') }} ">所有車型品牌</a>
         <a href="{{ route('cars.create') }} ">新增車型</a>
-        <a href="{{ route('cars.Prestigemodels') }} ">名貴車型</a>
+        <a href="{{ route('cars.senior') }} ">名貴車型</a>
     </div>
     <table>
         <tr>
@@ -52,5 +52,5 @@
     </table>
     @if ($showPagination)
     {{ $cars->links() }}
-
+    @endif
 @endsection

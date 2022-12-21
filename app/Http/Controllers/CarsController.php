@@ -31,13 +31,13 @@ class CarsController extends Controller
     public function index()
     {
         $cars =Car::paginate(10);
-        return view('cars.index',['cars' => $cars,'showPagination' =>true]);
+        return view('cars.index',['cars'=> $cars,'showPagination'=>true]);
     }
 
     public function senior()
     {
         $cars =Car::senior()->get();
-        return view('cars.index',['cars' => $cars,'showPagination' =>false]);
+        return view('cars.index',['cars'=> $cars,'showPagination'=>false]);
     }
 
     public function show($id)

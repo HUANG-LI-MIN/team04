@@ -34,3 +34,7 @@ Route::delete('brands/delete/{id}', [BrandsController::class, 'destroy'])->where
 Route::post('brands/store',[BrandsController::class,'store'])->name('brands.store');
 Route::get('brands/{id}/edit', [BrandsController::class, 'edit'])->where('id', '[0-9]+')->name('brands.edit');
 Route::patch('brands/update/{id}', [BrandsController::class, 'update'])->where('id', '[0-9]+')->name('brands.update');
+
+Route::get('brands/japan', [BrandsController::class, 'japan'])->name('brands.japan');
+Route::get('brands/usa', [BrandsController::class, 'usa'])->name('brands.usa');
+Route::get('brands/germany', [BrandsController::class, 'germany'])->name('brands.germany');

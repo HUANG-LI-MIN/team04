@@ -27,8 +27,8 @@ class Car extends Model
         return $this->belongsTo('App\Models\brand', 'bid', 'id');
     }
 
-    public function scopePrestigemodels($query)
+    public function scopeSenior($query)
     {
-        $query->where('money','>',400)->orderBy('money');
+        $query->where('money','>',5000)->orderBy('money');
     }
 }

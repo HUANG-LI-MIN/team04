@@ -9,6 +9,9 @@
         <a href="{{ route('cars.index') }} ">所有車型</a>
         <a href="{{ route('brands.index') }} ">所有車型品牌</a>
         <a href="{{ route('brands.create') }} ">新增車型品牌</a>
+        <a href="{{ route('brands.japan') }} ">日本車型</a>
+        <a href="{{ route('brands.usa') }} ">美國車型</a>
+        <a href="{{ route('brands.germany') }} ">德國車型</a>
     </div>
     <table>
             <tr>
