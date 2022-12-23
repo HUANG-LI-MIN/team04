@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+//Suse Illuminate\Database\Eloquent\Model;
 //use Illuminate\Http\Request;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
-//Suse Illuminate\Database\Eloquent\Model;
+
 use App\Http\Requests\CreateBrandRequest;
 class BrandsController extends Controller
 {
@@ -28,25 +28,47 @@ class BrandsController extends Controller
    }
     public function index()
     {
-        $brands =Brand::paginate(10);
+        $brands =Brand::paginate(25);
         return view('brands.index',['brands' => $brands]);
     }
     public function japan()
     {
-        $brands = Brand::nationality('日本')->get();
+        $brands = Brand::japan('日本')->paginate(25);//->get();
         return view('brands.index', ['brands'=>$brands]);
     }
 
     public function usa()
     {
-        $brands = Brand::nationality('美國')->get();
+        $brands = Brand::usa('美國')->paginate(25);
         return view('brands.index', ['brands'=>$brands]);
     }
     public function germany()
     {
-        $brands = Brand::nationality('德國')->get();
+        $brands = Brand::germany('德國')->paginate(25);//->get();
         return view('brands.index', ['brands'=>$brands]);
     }
+    public function UK()
+    {
+        $brands = Brand::UK('英國')->paginate(25);//->get();
+        return view('brands.index', ['brands'=>$brands]);
+    }
+    public function France()
+    {
+        $brands = Brand::France('法國')->paginate(25);//->get();
+        return view('brands.index', ['brands'=>$brands]);
+    }
+    public function Italy()
+    {
+        $brands = Brand::Italy('義大利')->paginate(25);//->get();
+        return view('brands.index', ['brands'=>$brands]);
+    }
+    public function Taiwan()
+    {
+        $brands = Brand::Taiwan('台灣')->paginate(25);//->get();
+        return view('brands.index', ['brands'=>$brands]);
+    }
+
+
     public function show($id)
     {
         $brand =Brand::findOrFail($id);

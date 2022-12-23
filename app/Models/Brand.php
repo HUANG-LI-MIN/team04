@@ -44,7 +44,22 @@ class Brand extends Model
     {
         $query->where('nationality','德國')->orderBy('nationality');
     }
-    
+    public function scopeUK($query)
+    {
+        $query->where('nationality','英國')->orderBy('nationality');
+    }
+    public function scopeFrance($query)
+    {
+        $query->where('nationality','法國')->orderBy('nationality');
+    }
+    public function scopeItaly($query)
+    {
+        $query->where('nationality','義大利')->orderBy('nationality');
+    }
+    public function scopeTaiwan($query)
+    {
+        $query->where('nationality','台灣')->orderBy('nationality');
+    }
 
 }
 

@@ -31,4 +31,14 @@ class Car extends Model
     {
         $query->where('money','>',5000)->orderBy('money');
     }
+    public function scopeAllModel($query)
+    {
+        $query->select('model')->groupBy('model');
+    }
+
+    public function scopeModel($query, $pos)
+    {
+        $query->where('model', '=', $pos)
+            ->orderBy('type');
+    }
 }

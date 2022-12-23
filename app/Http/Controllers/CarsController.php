@@ -31,13 +31,22 @@ class CarsController extends Controller
     public function index()
     {
         $cars =Car::paginate(10);
-        return view('cars.index',['cars'=> $cars,'showPagination'=>true]);
+        $models=Car::allModels()->pluck('cars.model','cars.model');
+        return view('cars.index',['cars'=> $cars,'models'=>$models]);
     }
 
     public function senior()
     {
-        $cars =Car::senior()->get();
-        return view('cars.index',['cars'=> $cars,'showPagination'=>false]);
+        $cars =Car::senior()->paginate(10);
+        $models =Car::allModels()->pluck('cars.model','cars.model');
+        return view('cars.index',['cars'=> $cars,'models'=>$models]);
+    }
+    
+    public function position(Request $request)
+    {
+        $cars =Car::model($request->input('pos'))->paginate(10);
+        $models =Car::allModels()->pluck('cars.model','cars.model');
+        return view('cars.index',['cars'=> $cars,'models'=>$models]);
     }
 
     public function show($id)

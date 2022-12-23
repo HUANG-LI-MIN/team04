@@ -12,6 +12,11 @@
         <a href="{{ route('brands.japan') }} ">日本車型</a>
         <a href="{{ route('brands.usa') }} ">美國車型</a>
         <a href="{{ route('brands.germany') }} ">德國車型</a>
+        <a href="{{ route('brands.UK') }} ">英國車型</a>
+        <a href="{{ route('brands.France') }} ">法國車型</a>
+        <a href="{{ route('brands.Italy') }} ">義大利車型</a>
+        <a href="{{ route('brands.Taiwan') }} ">台灣車型</a>
+       
     </div>
     <table>
             <tr>
