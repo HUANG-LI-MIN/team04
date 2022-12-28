@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
 use App\Models\Car;
 use App\Models\Brand;
+
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\CreateCarRequest;
-//use Request;
+use Illuminate\Http\Request;
 class CarsController extends Controller
 {
    public function store(CreateCarRequest $request)
@@ -31,22 +31,22 @@ class CarsController extends Controller
     public function index()
     {
         $cars =Car::paginate(10);
-        $models=Car::allModels()->pluck('cars.model','cars.model');
-        return view('cars.index',['cars'=> $cars,'models'=>$models]);
+        $type=Car::alltype()->pluck('cars.type','cars.type');
+        return view('cars.index',['cars'=> $cars,'type'=>$type]);
     }
 
     public function senior()
     {
         $cars =Car::senior()->paginate(10);
-        $models =Car::allModels()->pluck('cars.model','cars.model');
-        return view('cars.index',['cars'=> $cars,'models'=>$models]);
+        $type =Car::alltype()->pluck('cars.type','cars.type');
+        return view('cars.index',['cars'=> $cars,'type'=>$type]);
     }
     
-    public function position(Request $request)
+    public function type(Request $request)
     {
-        $cars =Car::model($request->input('pos'))->paginate(10);
-        $models =Car::allModels()->pluck('cars.model','cars.model');
-        return view('cars.index',['cars'=> $cars,'models'=>$models]);
+        $cars =Car::type($request->input('type'))->paginate(10);
+        $type =Car::alltype()->pluck('cars.type','cars.type');
+        return view('cars.index',['cars'=> $cars,'type'=>$type]);
     }
 
     public function show($id)
