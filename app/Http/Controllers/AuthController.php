@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Models\User;
-use Illuninate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    //
     public function register(Request $request)
     {
-        dd($request);
         $this->validate($request, [
             'name' => ['required', 'string'],
             'email' => ['required', 'email'],
             'password' => ['required', 'string'],
         ]);
 
-        /** @var User $user */
+        // @var User $user */
         $user = User::query()
             ->firstOrCreate([
                 'email' => $request->get('email'),
@@ -25,7 +25,6 @@ class AuthController extends Controller
                 'name' => $request->get('name'),
                 'password' => Hash::make($request->get('password')),
             ]);
-           
 
         if (!$user->wasRecentlyCreated) {
             return response()
@@ -57,7 +56,7 @@ class AuthController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        /** @var User $user */
+        // @var User $user */
         $user = User::query()
             ->where('email', '=', $request->get('email'))
             ->first();
@@ -72,7 +71,6 @@ class AuthController extends Controller
                     ],
                 ]);
         }
-        
 
         // Generate new token
         $token = $user->createToken('email');

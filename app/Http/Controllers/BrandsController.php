@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 //Suse Illuminate\Database\Eloquent\Model;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Models\Brand;
 use Illuminate\Support\Facades\DB;
 

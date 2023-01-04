@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CarsController;
+use App\Http\Controllers\BrandsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,10 +16,24 @@ use App\Http\Controllers\AuthController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+//Route::get('register', [AuthController::class, 'register']);
 Route::post('register', [AuthController::class, 'register']);
 
 Route::post('login',  [AuthController::class, 'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    // 查詢所有球隊
+    Route::get('brands', [BrandsController::class, 'api_brands']);
+    // 修改指定球隊
+    Route::patch('brands', [BrandsController::class, 'api_update']);
+    // 刪除指定球隊
+    Route::delete('brands', [BrandsController::class, 'api_delete']);
+    // 查詢所有球員
+    Route::get('cars', [CarsController::class, 'api_cars']);
+    // 修改指定球員
+    Route::patch('cars', [CarsController::class, 'api_update']);
+    // 刪除指定球員
+    Route::delete('cars', [CarsController::class, 'api_delete']);
+
 });
