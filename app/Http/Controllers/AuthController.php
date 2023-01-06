@@ -17,7 +17,7 @@ class AuthController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        // @var User $user */
+        /** @var User $user */
         $user = User::query()
             ->firstOrCreate([
                 'email' => $request->get('email'),
@@ -56,7 +56,7 @@ class AuthController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        // @var User $user */
+        /**  @var User $user */
         $user = User::query()
             ->where('email', '=', $request->get('email'))
             ->first();
